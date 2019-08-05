@@ -92,7 +92,7 @@ export default class OSSClient {
   }
 
   private getFileKey(key: string) {
-    const res = this.prefix ? this.prefix + key : key;
+    const res = encodeURIComponent(this.prefix ? this.prefix + key : key);
     return res.replace(/^\/+/, "");
   }
 
