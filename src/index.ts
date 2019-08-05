@@ -87,7 +87,7 @@ export default class OSSClient {
   private getHash(data: string) {
     return crypto
       .createHmac("sha1", this.accessKeySecret)
-      .update(data)
+      .update(decodeURIComponent(data))
       .digest("base64");
   }
 
